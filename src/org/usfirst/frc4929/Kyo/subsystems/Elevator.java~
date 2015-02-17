@@ -54,6 +54,13 @@ public class Elevator extends Subsystem {
     	Robot.elevator.topMo.set(0);
     }
 
+    public DigitalInput getLimitSwitchTop() {
+    	return this.limitSwitchtop;
+    }
+    
+    public DigitalInput getLimitSwitchBottom() {
+    	return this.limitSwitchbottom;
+    }
     
 }
 

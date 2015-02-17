@@ -67,10 +67,10 @@ public class RobotMap {
         elevatorTopMo = new Talon(4);
         LiveWindow.addActuator("Elevator", "TopMo", (Talon) elevatorTopMo);
         
-        elevatorLimitSwitchtop = new DigitalInput(1);
+        elevatorLimitSwitchtop = new DigitalInput(0);
         LiveWindow.addSensor("Elevator", "Limit Switch top", elevatorLimitSwitchtop);
         
-        elevatorLimitSwitchbottom = new DigitalInput(0);
+        elevatorLimitSwitchbottom = new DigitalInput(1);
         LiveWindow.addSensor("Elevator", "Limit Switch bottom", elevatorLimitSwitchbottom);
         
         clawDoubleSolenoid1 = new DoubleSolenoid(0, 4, 5);      
