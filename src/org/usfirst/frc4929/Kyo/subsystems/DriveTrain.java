@@ -13,8 +13,8 @@ package org.usfirst.frc4929.Kyo.subsystems;
 
 import org.usfirst.frc4929.Kyo.RobotMap;
 import org.usfirst.frc4929.Kyo.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -48,8 +48,13 @@ public class DriveTrain extends Subsystem {
 
     }
     
-    public void arcadeDrive(Joystick stick) {
-    	robotDrive41.arcadeDrive(stick);
+    public void mecanumDrive(Joystick stick) {
+    	
+    	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
+    	// This sample does not use field-oriented drive, so the gyro input is set to zero.
+    	robotDrive41.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+        
+        Timer.delay(0.005);	// wait 5ms to avoid hogging CPU cycles
     }
 }
 
