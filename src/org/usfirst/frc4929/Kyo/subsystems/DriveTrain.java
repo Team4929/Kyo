@@ -48,11 +48,20 @@ public class DriveTrain extends Subsystem {
 
     }
     
-    public void mecanumDrive(Joystick stick) {
+    public void mecanumDriveAuto() {
     	
     	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
     	// This sample does not use field-oriented drive, so the gyro input is set to zero.
-    	robotDrive41.mecanumDrive_Cartesian(stick.getX(), stick.getY(), stick.getZ(), 0);
+    	robotDrive41.mecanumDrive_Cartesian(0, -0.2, 0, 0);
+    }
+    
+    public void mecanumDrive(Joystick stick, Joystick stick2) {
+    	
+    	double throttleSetting = (stick.getThrottle() > 0 ) ? 0 : stick.getThrottle() * -1;
+    	
+    	// Use the joystick X axis for lateral movement, Y axis for forward movement, and Z axis for rotation.
+    	// This sample does not use field-oriented drive, so the gyro input is set to zero.
+    	robotDrive41.mecanumDrive_Cartesian(stick2.getX() * throttleSetting, stick.getY() * throttleSetting, stick.getZ() * throttleSetting, 0);
         
         Timer.delay(0.005);	// wait 5ms to avoid hogging CPU cycles
     }
